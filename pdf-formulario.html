@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF Entrevista</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+    }
+    .contenedor {
+      max-width: 750px;
+      margin: auto;
+      border: 1px solid black;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      border-bottom: 2px solid black;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+    .fila {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .fila strong {
+      border: 1px solid black;
+      padding: 4px 8px;
+      display: inline-block;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body onload="window.print()">
+  <div class="contenedor">
+    <h2>ENTREVISTA DE SALIDA DEL COLABORADOR SALIENTE</h2>
+
+    <div class="fila">
+      <strong>EMPRESA:</strong> <span>Óptica los Andes</span>
+      <strong>FECHA DE SALIDA:</strong> <span>miércoles, 30 de abril de 2025</span>
+    </div>
+
+    <div class="fila">
+      <strong>NOMBRE DEL COLABORADOR:</strong> <span>Cynthia Sugey Silva Pacheco</span>
+    </div>
+
+    <div class="fila">
+      <strong>CARGO:</strong> <span>Cosmetóloga</span>
+    </div>
+
+    <div class="fila">
+      <strong>NOMBRE DEL JEFE INMEDIATO:</strong> <span>Patricia Aguilera</span>
+    </div>
+
+  </div>
+</body>
+</html>
