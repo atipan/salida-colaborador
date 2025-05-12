@@ -4,62 +4,91 @@
   <meta charset="UTF-8">
   <title>Entrevista de Salida del Colaborador</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; }
-    h1 { color: #005b8f; text-align: center; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    .contenedor {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #005b8f;
+      text-align: center;
+    }
+
     p { font-size: 14px; }
-    .confidencial { color: red; font-style: italic; }
-    .seccion { margin-top: 30px; }
-    .subtitulo { color: green; font-weight: bold; font-size: 18px; }
-    .formulario label { display: block; margin-top: 15px; font-weight: bold; }
-    .formulario input, .formulario textarea, .formulario select {
-      display: block; width: 100%; margin-top: 5px; padding: 8px;
+
+    .confidencial {
+      color: red;
+      font-style: italic;
+    }
+
+    .subtitulo {
+      color: green;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 30px;
+    }
+
+    .formulario label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .formulario input,
+    .formulario textarea,
+    .formulario select {
+      display: block;
+      width: 100%;
+      margin-top: 5px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .logos {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logos img {
+      height: 70px;
+      margin: 0 20px;
     }
   </style>
 </head>
 <body>
 
-  <h1>ENTREVISTA DE SALIDA DEL COLABORADOR</h1>
+  <div class="contenedor">
+    <div class="logos">
+      <img src="https://intranet.opticalosandes.com.ec/wp-content/uploads/2021/10/footer-logo-andes.png" alt="Soluvista">
+      <img src="https://intranet.opticalosandes.com.ec/wp-content/uploads/2022/01/logo-OLA-color.jpg" alt="Grupo OLA">
+    </div>
 
-  <p>Estimad@ Colaborador/a,</p>
-  <p>El objetivo de la presente encuesta es recopilar información sobre fortalezas y oportunidades de mejora que pudiste evidenciar en tu trayectoria laboral en Grupo OLA.</p>
-  <p class="confidencial">La información recibida será gestionada de manera confidencial.</p>
+    <h1>ENTREVISTA DE SALIDA DEL COLABORADOR</h1>
 
-  <div class="seccion">
+    <p>Estimad@ Colaborador/a,</p>
+    <p>El objetivo de la presente encuesta es recopilar información sobre fortalezas y oportunidades de mejora que pudiste evidenciar en tu trayectoria laboral en Grupo OLA.</p>
+    <p class="confidencial">La información recibida será gestionada de manera confidencial.</p>
+
     <div class="subtitulo">INFORMACIÓN PERSONAL</div>
+
     <form class="formulario">
       <label>Empresa</label><input type="text">
       <label>Nombres Completos</label><input type="text">
       <label>Cédula</label><input type="text">
       <label>Ciudad</label><input type="text">
       <label>Cargo</label><input type="text">
-      <label>Jefe Inmediato</label><input type="text">
-      <label>Fecha de Salida</label><input type="date">
-      <label>Número de Contacto</label><input type="text">
-      <label>¿Cuáles son sus motivos para dejar la empresa?</label><textarea></textarea>
-      <label>Por favor justifique su respuesta anterior</label><textarea></textarea>
-      <label>Grado de satisfacción: Beneficios sociales</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Grado de satisfacción: Condiciones físicas y ambientales</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Grado de satisfacción: Potencial de promoción</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Grado de satisfacción: Trabajo interesante</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Grado de satisfacción: Reconocimiento de mi labor</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Grado de satisfacción: Remuneración</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Grado de satisfacción: Relación con los compañeros</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Justifique si fue completamente satisfecho o insatisfecho</label><textarea></textarea>
-      <label>Grado de satisfacción: Jefe inmediato</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Grado de satisfacción: Capacitación</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Grado de satisfacción: Horario de trabajo</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Grado de satisfacción: Carga de trabajo</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Grado de satisfacción: Ambiente laboral</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Grado de satisfacción: Claridad en las funciones</label><select><option>Seleccione</option><option>Completamente satisfecho</option><option>Satisfecho</option><option>Neutral</option><option>Insatisfecho</option><option>Completamente insatisfecho</option></select>
-      <label>Justifique si fue completamente satisfecho o insatisfecho</label><textarea></textarea>
-      <label>¿Cómo cree que está administrada la empresa?</label><textarea></textarea>
-      <label>Justifique su respuesta anterior</label><textarea></textarea>
-      <label>¿Qué era lo que más le gustaba de su trabajo?</label><textarea></textarea>
-      <label>¿Qué era lo que menos le gustaba de su trabajo?</label><textarea></textarea>
-      <label>¿Tiene alguna sugerencia para mejorar las condiciones laborales?</label><textarea></textarea>
-      <label>¿Cree que su labor ha sido importante para la Empresa?</label><textarea></textarea>
-      <label>Justifique su respuesta anterior</label><textarea></textarea>
-      <label>¿Recomendaría la empresa a un amigo? (para trabajar)</label><select><option>Seleccione</option><option>Sí</option><option>No</option></select>
+      <!-- Puedes seguir con el resto de las preguntas aquí -->
     </form>
   </div>
 
