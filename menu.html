@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú de Entrevistas</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 40px; }
+    .contenedor {
+      background: #fff; max-width: 700px; margin: auto; padding: 30px;
+      border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 { text-align: center; color: #005b8f; }
+    label { font-weight: bold; display: block; margin-top: 20px; }
+    select, input { width: 100%; padding: 10px; margin-top: 5px; font-size: 14px; }
+    .botones { margin-top: 30px; text-align: center; }
+    button {
+      padding: 10px 20px; font-size: 16px; margin: 0 10px;
+      cursor: pointer; background-color: #005b8f; color: white; border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>SELECCIÓN DE COLABORADOR</h2>
+
+    <label>Nombre del Colaborador</label>
+    <select id="colaborador">
+      <option value="" disabled selected>Seleccione...</option>
+      <option value="Cynthia">Cynthia Sugey Silva Pacheco</option>
+    </select>
+
+    <label>Empresa</label>
+    <input type="text" id="empresa" value="Óptica los Andes" readonly>
+
+    <label>Fecha de salida</label>
+    <input type="text" id="fecha" value="Miércoles, 30 de abril de 2025" readonly>
+
+    <label>Cargo</label>
+    <input type="text" id="cargo" value="Cosmetóloga" readonly>
+
+    <label>Nombre del Jefe Inmediato</label>
+    <input type="text" id="jefe" value="Patricia Aguilera" readonly>
+
+    <div class="botones">
+      <button onclick="verFormulario()">VER</button>
+      <button onclick="confirmarPDF()">IMPRIMIR PDF</button>
+    </div>
+  </div>
+
+  <script>
+    function verFormulario() {
+      window.location.href = 'formulario.html';
+    }
+
+    function confirmarPDF() {
+      if (confirm("¿Deseas generar el PDF?")) {
+        window.open('pdf_formulario.html', '_blank', 'width=800,height=600');
+      }
+    }
+  </script>
+</body>
+</html>
