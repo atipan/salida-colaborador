@@ -132,20 +132,32 @@
       <div class="subtitulo">CONDICIONES LABORALES</div>
       
       <label><strong>¿Cuáles son sus motivos para dejar la empresa?</strong></label>
-      <div style="margin-top: 10px;">
-        <label><input type="radio" name="motivo" value="Mejor Oferta Laboral"> Mejor Oferta Laboral</label><br>
-        <label><input type="radio" name="motivo" value="Nepotismo"> Nepotismo</label><br>
-        <label><input type="radio" name="motivo" value="Motivos familiares / personales"> Motivos familiares / personales</label><br>
-        <label><input type="radio" name="motivo" value="Desmotivación"> Desmotivación</label><br>
-        <label><input type="radio" name="motivo" value="Cambio de residencia"> Cambio de residencia</label><br>
-        <label><input type="radio" name="motivo" value="Retomar estudios"> Retomar estudios</label><br>
-        <label><input type="radio" name="motivo" value="Desacuerdo con jefe inmediato o superiores"> Desacuerdo con jefe inmediato o superiores</label><br>
-        <label><input type="radio" name="motivo" value="Incomodidad con ambiente laboral"> Incomodidad con ambiente laboral</label><br>
-        <label><input type="radio" name="motivo" value="Acoso"> Acoso</label><br>
-        <label><input type="radio" name="motivo" value="Incomodidad con los horarios"> Incomodidad con los horarios</label><br>
-        <label><input type="radio" name="motivo" value="Otras"> Otras</label>
+      <div style="margin-top: 10px; line-height: 1.8;">
+        <label><input type="checkbox" name="motivos" value="Mejor Oferta Laboral"> Mejor Oferta Laboral</label><br>
+        <label><input type="checkbox" name="motivos" value="Nepotismo"> Nepotismo</label><br>
+        <label><input type="checkbox" name="motivos" value="Motivos familiares / personales"> Motivos familiares / personales</label><br>
+        <label><input type="checkbox" name="motivos" value="Desmotivación"> Desmotivación</label><br>
+        <label><input type="checkbox" name="motivos" value="Cambio de residencia"> Cambio de residencia</label><br>
+        <label><input type="checkbox" name="motivos" value="Retomar estudios"> Retomar estudios</label><br>
+        <label><input type="checkbox" name="motivos" value="Desacuerdo con jefe inmediato o superiores"> Desacuerdo con jefe inmediato o superiores</label><br>
+        <label><input type="checkbox" name="motivos" value="Incomodidad con ambiente laboral"> Incomodidad con ambiente laboral</label><br>
+        <label><input type="checkbox" name="motivos" value="Acoso"> Acoso</label><br>
+        <label><input type="checkbox" name="motivos" value="Incomodidad con los horarios"> Incomodidad con los horarios</label><br>
+        <label><input type="checkbox" name="motivos" value="Otras"> Otras</label>
+          <!-- Campo que se muestra solo si se marca "Otras" -->
+          <div id="otrasEspecificar" style="margin-top: 10px; display: none;">
+            <label>Por favor especifique:</label>
+            <input type="text" name="otrasEspecificacion" style="width:100%; padding: 6px; font-size: 14px;">
+          </div>
       </div>
 
+      <script>
+      document.getElementById('otrasCheckbox').addEventListener('change', function() {
+        const campo = document.getElementById('otrasEspecificar');
+        campo.style.display = this.checked ? 'block' : 'none';
+      });
+      </script>
+      
       <label>Por favor justifique su respuesta anterior</label>
       <textarea></textarea>
 
