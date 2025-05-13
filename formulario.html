@@ -230,29 +230,107 @@
       <label>Si su respuesta fue completamente satisfecho o completamente insatisfecho, justifique su respuesta.</label>
       <textarea></textarea>
 
-      <label>Jefe inmediato</label>
-      <select><option>Seleccione</option>...</select>
-
-      <label>Capacitación</label>
-      <select><option>Seleccione</option>...</select>
-
-      <label>Horario de trabajo</label>
-      <select><option>Seleccione</option>...</select>
-
-      <label>Carga de trabajo</label>
-      <select><option>Seleccione</option>...</select>
-
-      <label>Ambiente laboral</label>
-      <select><option>Seleccione</option>...</select>
-
-      <label>Claridad en las funciones</label>
-      <select><option>Seleccione</option>...</select>
+      <label>¿Cuál es su grado de satisfacción con los siguientes aspectos?</label>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse:collapse; width:100%; margin-top:10px; text-align:center;">
+          <thead style="background:#f0f0f0;">
+            <tr>
+              <th style="text-align:left;">Aspecto</th>
+              <th>Completamente satisfecho</th>
+              <th>Satisfecho</th>
+              <th>Insatisfecho</th>
+              <th>Completamente insatisfecho</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left;">Jefe Inmediato</td>
+              <td><input type="radio" name="jefe" value="Completamente satisfecho"></td>
+              <td><input type="radio" name="jefe" value="Satisfecho"></td>
+              <td><input type="radio" name="jefe" value="Insatisfecho"></td>
+              <td><input type="radio" name="jefe" value="Completamente insatisfecho"></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">Capacitación</td>
+              <td><input type="radio" name="capacitacion" value="Completamente satisfecho"></td>
+              <td><input type="radio" name="capacitacion" value="Satisfecho"></td>
+              <td><input type="radio" name="capacitacion" value="Insatisfecho"></td>
+              <td><input type="radio" name="capacitacion" value="Completamente insatisfecho"></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">Horario de Trabajo</td>
+              <td><input type="radio" name="horario" value="Completamente satisfecho"></td>
+              <td><input type="radio" name="horario" value="Satisfecho"></td>
+              <td><input type="radio" name="horario" value="Insatisfecho"></td>
+              <td><input type="radio" name="horario" value="Completamente insatisfecho"></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">Carga de Trabajo</td>
+              <td><input type="radio" name="carga" value="Completamente satisfecho"></td>
+              <td><input type="radio" name="carga" value="Satisfecho"></td>
+              <td><input type="radio" name="carga" value="Insatisfecho"></td>
+              <td><input type="radio" name="carga" value="Completamente insatisfecho"></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">Ambiente Laboral</td>
+              <td><input type="radio" name="ambiente" value="Completamente satisfecho"></td>
+              <td><input type="radio" name="ambiente" value="Satisfecho"></td>
+              <td><input type="radio" name="ambiente" value="Insatisfecho"></td>
+              <td><input type="radio" name="ambiente" value="Completamente insatisfecho"></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">Claridad en las funciones</td>
+              <td><input type="radio" name="claridad" value="Completamente satisfecho"></td>
+              <td><input type="radio" name="claridad" value="Satisfecho"></td>
+              <td><input type="radio" name="claridad" value="Insatisfecho"></td>
+              <td><input type="radio" name="claridad" value="Completamente insatisfecho"></td>
+            </tr>
+          </tbody>
+        </table>
 
       <label>Si su respuesta fue completamente satisfecho o completamente insatisfecho, justifique su respuesta.</label>
       <textarea></textarea>
 
       <label>¿Cómo cree que está administrada la empresa?</label>
-      <textarea></textarea>
+            <style>
+                .estrellas {
+                  direction: rtl;
+                  unicode-bidi: bidi-override;
+                  text-align: center;
+                  font-size: 30px;
+                  user-select: none;
+                }
+              
+                .estrellas input {
+                  display: none;
+                }
+              
+                .estrellas label {
+                  color: #ccc;
+                  cursor: pointer;
+                  display: inline-block;
+                  margin: 0 4px;
+                }
+              
+                .estrellas input:checked ~ label,
+                .estrellas label:hover,
+                .estrellas label:hover ~ label {
+                  color: gold;
+                }
+              </style>
+              
+              <label><strong>¿Cómo cree que está administrada la empresa?</strong></label>
+              <div class="estrellas">
+                <input type="radio" id="estrella5" name="calificacion" value="5">
+                <label for="estrella5">★</label>
+                <input type="radio" id="estrella4" name="calificacion" value="4">
+                <label for="estrella4">★</label>
+                <input type="radio" id="estrella3" name="calificacion" value="3">
+                <label for="estrella3">★</label>
+                <input type="radio" id="estrella2" name="calificacion" value="2">
+                <label for="estrella2">★</label>
+                <input type="radio" id="estrella1" name="calificacion" value="1">
+                <label for="estrella1">★</label>
+             </div>
 
       <label>Por favor justifique su respuesta anterior</label>
       <textarea></textarea>
