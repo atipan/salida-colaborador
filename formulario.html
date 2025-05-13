@@ -292,33 +292,39 @@
 
       <label>¿Cómo cree que está administrada la empresa?</label>
             <style>
-                .estrellas {
-                  direction: rtl;
-                  unicode-bidi: bidi-override;
-                  text-align: center;
-                  font-size: 30px;
-                  user-select: none;
-                }
-              
-                .estrellas input {
-                  display: none;
-                }
-              
-                .estrellas label {
-                  color: #ccc;
-                  cursor: pointer;
-                  display: inline-block;
-                  margin: 0 4px;
-                }
-              
-                .estrellas input:checked ~ label,
-                .estrellas label:hover,
-                .estrellas label:hover ~ label {
-                  color: gold;
-                }
-              </style>
-              
-              <label><strong>¿Cómo cree que está administrada la empresa?</strong></label>
+              .fila-estrellas {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-top: 10px;
+              }
+            
+              .estrellas {
+                direction: rtl;
+                unicode-bidi: bidi-override;
+                font-size: 28px;
+                user-select: none;
+              }
+            
+              .estrellas input {
+                display: none;
+              }
+            
+              .estrellas label {
+                color: #ccc;
+                cursor: pointer;
+                display: inline-block;
+                margin: 0 2px;
+              }
+            
+              .estrellas input:checked ~ label,
+              .estrellas label:hover,
+              .estrellas label:hover ~ label {
+                color: gold;
+              }
+            </style>
+            
+            <div class="fila-estrellas">
               <div class="estrellas">
                 <input type="radio" id="estrella5" name="calificacion" value="5">
                 <label for="estrella5">★</label>
@@ -330,7 +336,11 @@
                 <label for="estrella2">★</label>
                 <input type="radio" id="estrella1" name="calificacion" value="1">
                 <label for="estrella1">★</label>
-             </div>
+              </div>
+            
+              <label>¿Cómo cree que está administrada la empresa?</label>
+            </div>
+
 
       <label>Por favor justifique su respuesta anterior</label>
       <textarea></textarea>
