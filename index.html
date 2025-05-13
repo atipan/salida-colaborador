@@ -43,7 +43,6 @@
 
     <div class="botones">
       <button onclick="verFormulario()">VER</button>
-      <button onclick="confirmarPDF()">IMPRIMIR PDF</button>
     </div>
   </div>
 
@@ -51,12 +50,7 @@
     function verFormulario() {
       window.location.href = 'formulario.html';
     }
-
-    function confirmarPDF() {
-      if (confirm("¿Deseas generar el PDF?")) {
-        window.open('pdf_formulario.html', '_blank', 'width=800,height=600');
-      }
-    }
+    
   </script>
 </body>
 </html>
