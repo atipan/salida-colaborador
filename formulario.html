@@ -29,8 +29,12 @@
     <option value="">Seleccione...</option>
   </select>
 
+  <div id="formularioRespuestas" style="margin-top: 30px;"></div>
+
   <script>
-    const JSON_URL = 'https://opticalosandesec-my.sharepoint.com/:u:/g/personal/atipan_ola_ec/EbE91AubjMJJjyluTC0oCYUBDCKO5Vq_InJmAJus30rm6Q?e=PSJFc3&download=1';
+    // 🟢 Ruta al JSON generado automáticamente por Power Automate
+    const JSON_URL = 'https://opticalosandesec-my.sharepoint.com/:u:/g/personal/atipan_ola_ec/EbE91AubjMJJjyluTC0oCYUBDCKO5Vq_InJmAJus30rm6Q?e=PSJFc3'; // <-- Reemplazar por la URL real del JSON privado
+
     let datosColaboradores = [];
 
     async function cargarDatos() {
@@ -39,7 +43,8 @@
         datosColaboradores = await res.json();
         llenarMenu();
       } catch (error) {
-        console.error("Error al cargar JSON:", error);
+        document.getElementById('formularioRespuestas').innerHTML = '<p style="color:red;">Error al cargar los datos.</p>';
+        console.error(error);
       }
     }
 
@@ -57,57 +62,38 @@
 
     function mostrarDatos() {
       const seleccionado = document.getElementById('colaboradorSelect').value;
-      const campos = {
-        "nombre": "2. Nombres Completos",
-        "empresa": "1. Empresa",
-        "cedula": "3. Cédula",
-        "ciudad": "4. Ciudad",
-        "cargo": "5. Cargo",
-        "jefe": "6. Jefe Inmediato",
-        "fecha_salida": "7. Fecha de Salida",
-        "contacto": "8. Número de Contacto",
-        "motivo": "9. ¿Cuáles son sus motivos para dejar la empresa?",
-        "justificacion_motivo": "10. Por favor justifique su respuesta anterior",
-        "justificacion_satisfaccion_1": "12. Si su respuesta fue completamente satisfecho o completamente insatisfecho, justifique su respuesta.",
-        "justificacion_satisfaccion_2": "14. Si su respuesta fue completamente satisfecho o completamente insatisfecho, justifique su respuesta.",
-        "evaluacion_empresa": "15. ¿Cómo cree que está administrada la empresa?",
-        "justificacion_administracion": "16. Por favor justifique su respuesta anterior",
-        "gusto_mas": "17. ¿Qué era lo que más le gustaba de su trabajo?",
-        "gusto_menos": "18. ¿Qué era lo que menos le gustaba de su trabajo?",
-        "sugerencia": "19. ¿Tiene alguna sugerencia para mejorar las condiciones laborales?",
-        "importancia": "20. ¿Cree que su labor ha sido importante para la Empresa?",
-        "justificacion_importancia": "21. Por favor justifique su respuesta anterior",
-        "recomendacion": "22. ¿Recomendaría la empresa a un amigo? (para trabajar)"
-      };
+      const contenedor = document.getElementById('formularioRespuestas');
+      contenedor.innerHTML = '';
+
+      if (!seleccionado) return;
 
       const colaborador = datosColaboradores.find(p => p.nombre === seleccionado);
-      if (!colaborador) return;
 
-      for (const key in campos) {
-        const labelText = campos[key];
-        const inputs = [...document.querySelectorAll('label')]
-          .filter(l => l.textContent.trim().includes(labelText))
-          .map(l => l.nextElementSibling);
+      if (!colaborador) {
+        contenedor.innerHTML = '<p>Colaborador no encontrado.</p>';
+        return;
+      }
 
-        if (inputs.length && colaborador[key]) {
-          if (inputs[0].tagName === 'INPUT' || inputs[0].tagName === 'TEXTAREA') {
-            inputs[0].value = colaborador[key];
-          } else if (inputs[0].tagName === 'SELECT') {
-            [...inputs[0].options].forEach(opt => {
-              if (opt.textContent.trim() === colaborador[key]) {
-                opt.selected = true;
-              }
-            });
-          }
-        }
+      for (const [clave, valor] of Object.entries(colaborador)) {
+        const label = document.createElement('label');
+        label.textContent = clave.charAt(0).toUpperCase() + clave.slice(1).replaceAll('_', ' ');
+
+        const div = document.createElement('div');
+        div.className = 'respuesta';
+        div.textContent = valor;
+
+        contenedor.appendChild(label);
+        contenedor.appendChild(div);
       }
     }
 
+    // 🚀 Ejecutar al cargar
     cargarDatos();
   </script>
 
 </body>
 </html>
+
 
   <div class="contenedor">
 
