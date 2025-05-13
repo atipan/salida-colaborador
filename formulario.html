@@ -2,98 +2,102 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Entrevista del Colaborador</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-    }
-    label {
-      font-weight: bold;
-      margin-top: 20px;
-      display: block;
-    }
-    .respuesta {
-      background: #f0f0f0;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-    }
-  </style>
+  <title>Entrevista de Salida del Colaborador</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 40px;
+        background: #f9f9f9;
+      }
+    
+      .contenedor {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+    
+      h1 {
+        color: #005b8f;
+        text-align: center;
+      }
+    
+      p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+    
+      .confidencial {
+        color: red;
+        font-style: italic;
+      }
+    
+      .subtitulo {
+        color: green;
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+      }
+    
+      .formulario label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+      }
+    
+      .formulario input,
+      .formulario textarea,
+      .formulario select {
+        display: block;
+        width: 100%;
+        margin-top: 5px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+    
+      .logos {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+    
+      .logos img {
+        height: 70px;
+        margin: 0 20px;
+      }
+    
+      .volver {
+        text-decoration: none;
+        font-size: 16px;
+        display: inline-block;
+        margin-bottom: 20px;
+        color: #005b8f;
+      }
+    
+      @media print {
+        body {
+          margin: 0;
+          padding: 0;
+        }
+    
+        .contenedor {
+          max-width: 100% !important;
+          margin: 0 auto !important;
+          padding: 0 30px !important;
+          box-shadow: none !important;
+        }
+    
+        .volver, button {
+          display: none !important;
+        }
+      }
+    </style>
 </head>
 <body>
-
-  <h2>Selección de Colaborador</h2>
-  <label for="colaboradorSelect">Nombre del colaborador:</label>
-  <select id="colaboradorSelect">
-    <option value="">Seleccione...</option>
-  </select>
-
-  <div id="formularioRespuestas" style="margin-top: 30px;"></div>
-
-  <script>
-    // 🟢 Ruta al JSON generado automáticamente por Power Automate
-    const JSON_URL = 'https://opticalosandesec-my.sharepoint.com/:u:/g/personal/atipan_ola_ec/EbE91AubjMJJjyluTC0oCYUBDCKO5Vq_InJmAJus30rm6Q?e=PSJFc3'; // <-- Reemplazar por la URL real del JSON privado
-
-    let datosColaboradores = [];
-
-    async function cargarDatos() {
-      try {
-        const res = await fetch(JSON_URL);
-        datosColaboradores = await res.json();
-        llenarMenu();
-      } catch (error) {
-        document.getElementById('formularioRespuestas').innerHTML = '<p style="color:red;">Error al cargar los datos.</p>';
-        console.error(error);
-      }
-    }
-
-    function llenarMenu() {
-      const select = document.getElementById('colaboradorSelect');
-      datosColaboradores.forEach(persona => {
-        const option = document.createElement('option');
-        option.value = persona.nombre;
-        option.textContent = persona.nombre;
-        select.appendChild(option);
-      });
-
-      select.addEventListener('change', mostrarDatos);
-    }
-
-    function mostrarDatos() {
-      const seleccionado = document.getElementById('colaboradorSelect').value;
-      const contenedor = document.getElementById('formularioRespuestas');
-      contenedor.innerHTML = '';
-
-      if (!seleccionado) return;
-
-      const colaborador = datosColaboradores.find(p => p.nombre === seleccionado);
-
-      if (!colaborador) {
-        contenedor.innerHTML = '<p>Colaborador no encontrado.</p>';
-        return;
-      }
-
-      for (const [clave, valor] of Object.entries(colaborador)) {
-        const label = document.createElement('label');
-        label.textContent = clave.charAt(0).toUpperCase() + clave.slice(1).replaceAll('_', ' ');
-
-        const div = document.createElement('div');
-        div.className = 'respuesta';
-        div.textContent = valor;
-
-        contenedor.appendChild(label);
-        contenedor.appendChild(div);
-      }
-    }
-
-    // 🚀 Ejecutar al cargar
-    cargarDatos();
-  </script>
-
-</body>
-</html>
-
 
   <div class="contenedor">
 
