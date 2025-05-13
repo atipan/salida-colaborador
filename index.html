@@ -24,10 +24,13 @@
     <h2>SELECCIÓN DE COLABORADOR</h2>
 
     <label>Nombre del Colaborador</label>
-    <select id="colaborador">
-      <option value="" disabled selected>Seleccione...</option>
-      <option value="Cynthia">Cynthia Sugey Silva Pacheco</option>
-    </select>
+    <input list="colaboradores" id="colaborador" placeholder="Escriba un nombre...">
+    <datalist id="colaboradores">
+    <option value="Cynthia Sugey Silva Pacheco">
+    <option value="Marco Antonio Lema Torres">
+    <option value="Ana María Villacís Cevallos">
+    <!-- Agrega aquí más nombres -->
+    </datalist>
 
     <label>Empresa</label>
     <input type="text" id="empresa" value="Óptica los Andes" readonly>
