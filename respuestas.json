@@ -1,106 +1,605 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Respuestas de Entrevista</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      padding: 40px;
-    }
-
-    .contenedor {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      text-align: center;
-      color: #005b8f;
-    }
-
-    select {
-      width: 100%;
-      padding: 8px;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .respuesta {
-      border-bottom: 1px solid #ddd;
-      padding: 10px 0;
-    }
-
-    .respuesta p {
-      margin: 5px 0;
-    }
-
-    .pregunta {
-      font-weight: bold;
-      color: #333;
-    }
-
-    .valor {
-      color: #444;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="contenedor">
-    <h1>Respuestas del Colaborador</h1>
-    <select id="select-colaborador">
-      <option value="">-- Seleccione un colaborador --</option>
-    </select>
-
-    <div id="respuestas"></div>
-  </div>
-
-  <script>
-    let datos = [];
-
-    fetch("respuestas.json")
-      .then(response => response.json())
-      .then(json => {
-        datos = json;
-        const nombres = [...new Set(datos.map(item => item.nombre_colaborador))];
-        const select = document.getElementById("select-colaborador");
-
-        nombres.forEach(nombre => {
-          const option = document.createElement("option");
-          option.value = nombre;
-          option.textContent = nombre;
-          select.appendChild(option);
-        });
-      });
-
-    document.getElementById("select-colaborador").addEventListener("change", function() {
-      const nombre = this.value;
-      const contenedor = document.getElementById("respuestas");
-      contenedor.innerHTML = "";
-
-      const respuestas = datos.filter(d => d.nombre_colaborador === nombre);
-      if (respuestas.length === 0) {
-        contenedor.innerHTML = "<p>No se encontraron respuestas.</p>";
-        return;
-      }
-
-      respuestas.forEach((r, i) => {
-        const div = document.createElement("div");
-        div.className = "respuesta";
-        div.innerHTML = `
-          <p class="pregunta">Pregunta: ${r.pregunta || '—'}</p>
-          <p class="valor">Respuesta: ${r.respuesta || '—'}</p>
-        `;
-        contenedor.appendChild(div);
-      });
-    });
-  </script>
-
-</body>
-</html>
+[
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":"ENTREVISTA DE SALIDA DEL COLABORADOR SALIENTE",
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"EMPRESA:",
+    "Unnamed: 1":"Optica los Andes",
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"FECHA DE SALIDA:",
+    "Unnamed: 6":1748131200000
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"NOMBRE DEL COLABORADOR:",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":"CRISTHIAN MANUEL RECALDE BRAVO",
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"CARGO:",
+    "Unnamed: 1":"ASESOR",
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"NOMBRE DEL JEFE INMEDIATO:",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":"DIEGO TAPIA",
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"CEDULA:",
+    "Unnamed: 1":"703914259",
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"CIUDAD:",
+    "Unnamed: 6":"Quito"
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"NÚMERO DE CONTACTO:",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":"995391239",
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"RESPUESTA 1",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":"Trabajaré en algo más relacionado a mis estudios",
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"RESPUESTA 2",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":0,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"RESPUESTA 3",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":0,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"RESPUESTA 4",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":"Se han quitado muchos incentivos.",
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"¿Qué era lo que más le gustaba de su trabajo?",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"El ambiente laboral en el local",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"¿Qué era lo que menos le gustaba de su trabajo?",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"volantear",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"¿Tiene alguna sugerencia para mejorar las condiciones laborales?",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Mejorar remuneración",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"¿Cree que su labor ha sido importante para la Empresa?",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Si",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"RESPUESTA 5",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Siempre colaboré en todo",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"¿Recomendaría la empresa a un amigo? (para trabajar)",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Si",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Beneficios sociales",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Satisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Condiciones físicas y ambientales",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Satisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Potencial de promoción",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Insatisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Trabajo interesante",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Satisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Reconocimiento de mi labor",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Satisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Remuneración",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Insatisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Relación con los compañeros",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Completamente satisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Jefe inmediato",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Satisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Capacitación",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Satisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Horario de trabajo",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Satisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Carga de trabajo",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Satisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Ambiente laboral",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Satisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Claridad en las funciones",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":"Satisfecho",
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"¿Cómo cree que está administrada la empresa?",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":4,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"¿Cuáles son sus motivos para dejar la empresa?",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":"Mejor oferta laboral",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  },
+  {
+    "Unnamed: 0":null,
+    "Unnamed: 1":"Mejor oferta laboral",
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null
+  }
+]
